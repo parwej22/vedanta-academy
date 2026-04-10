@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vedanta Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family:'Poppins',sans-serif;background:#f4f6f9;}
+
+/* HEADER */
+header {
+    background:#0d6efd;
+    color:white;
+    padding:10px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo {display:flex;align-items:center;gap:10px;}
+.logo img {width:40px;height:40px;border-radius:50%;}
+
+/* NAV */
+nav {display:flex;gap:20px;}
+nav a {color:white;text-decoration:none;}
+
+.menu-toggle {display:none;font-size:24px;cursor:pointer;}
+
+/* SLIDER */
+.slider {
+    position:relative;
+    height:300px;
+    overflow:hidden;
+}
+
+.slide {
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:0.8s;
+}
+
+.slide img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.active {
+    opacity:1;
+}
+
+/* CONTAINER */
+.container {width:90%;max-width:1100px;margin:auto;}
+
+section {
+    background:white;
+    margin-top:20px;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+/* ABOUT SECTION */
+#about h2 {
+    text-align: center;
+    color: #0d6efd;
+    margin-bottom: 20px;
+}
+
+/* LAYOUT */
+.about-container {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* TEXT */
+.about-text {
+    flex: 2;
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* FOUNDER CARD */
+.about-founder {
+    flex: 1;
+    text-align: center;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* IMAGE */
+.about-founder img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 4px solid #0d6efd;
+}
+
+/* NAME */
+.about-founder h3 {
+    color: #0d6efd;
+    margin-bottom: 5px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+}
+/* COURSES SECTION */
+.courses {
+    margin-top: 20px;
+}
+
+#courses h1 {
+    text-align: center;
+    color: #0d6efd;
+    margin-bottom: 20px;
+}
+
+/* GRID LIKE GALLERY */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* CARD STYLE */
+.course-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-6px);
+}
+
+/* TEXT */
+.course-card h3 {
+    color: #0d6efd;
+    margin-bottom: 10px;
+}
+
+.course-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 200px;        /* 👈 same height for all */
+    object-fit: cover;    /* 👈 image crop hoga, stretch nahi */
+    border-radius: 10px;
+}
+
+/* FORM */
+form input, form textarea {
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+form button {
+    margin-top:10px;
+    padding:10px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+
+/* CONTACT WRAPPER */
+.contact-wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* CONTACT CARD */
+.contact-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 350px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* MAP BOX */
+.map-box {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+/* TITLE */
+.contact-card h3 {
+    color: #0d6efd;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+.contact-card p {
+    margin: 8px 0;
+    color: #444;
+}
+
+/* LINKS */
+.contact-card a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+/* BUTTON */
+.contact-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    background: #0d6efd;
+    color: white !important;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.contact-btn:hover {
+    background: #0b5ed7;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* CONTACT WRAPPER */
+.contact-wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* CONTACT CARD */
+.contact-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 350px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.contact-card h3 {
+    color: #0d6efd;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+.contact-card p {
+    margin: 8px 0;
+    color: #444;
+}
+
+/* LINKS */
+.contact-card a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+/* BUTTON */
+.contact-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    background: #0d6efd;
+    color: white !important;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* MAP */
+.map-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .map-container iframe {
+        height: 220px;
+    }
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:12px 15px;
+    border-radius:50%;
+    font-size:20px;
+    text-decoration:none;
+}
+
+/* FOOTER */
+footer {
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+    background:#0d6efd;
+    color:white;
+}
+/* ICON BAR */
+.icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+/* ICON BOX */
+.icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* ICONS */
+.icon i {
+    font-size: 18px;
+}
+
+/* COLORS */
+.call { background: #0d6efd; }
+.insta { background: #e4405f; }
+.fb { background: #1877f2; }
+.form { background: #28a745; }
+
+/* HOVER EFFECT */
+.icon:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .icons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* MOBILE */
+@media(max-width:768px){
+    nav {
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        background:#0d6efd;
+        top:60px;
+        right:0;
+        width:200px;
+    }
+    nav.active {display:flex;}
+    .menu-toggle {display:block;}
+}
+/* NAV */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+/* MOBILE MENU */
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: white;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #0d6efd;
+        width: 200px;
+        padding: 10px;
+        z-index: 999;
+    }
+
+    nav a {
+        padding: 10px;
+        color: white;
+    }
+
+    nav.active {
+        display: flex;
+    }
+}
+/* GLOBAL FIX (MOST IMPORTANT) */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* 👈 horizontal scroll remove */
+}
+
+/* ALL CONTAINERS SAFE */
+.container, section {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* CONTACT FIX */
+.contact-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* MAP FIX */
+.map-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* FOOTER FIX */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+}
+
+/* IMAGES FIX */
+img {
+    max-width: 100%;
+    height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://lh3.googleusercontent.com/a-/ALV-UjVbP6RtfhyJt4sI_mQ5FkYYUvFI2hJFsAc5ZXZrXPiq4wHKE04=s360-w360-h360">
+        <h2>Vedanta Academy</h2> <img src="https://lh3.googleusercontent.com/p/AF1QipNQ4xgfGtPKPsoO_-Eghfdv5vZidB-VJD6Y3Sgo=s680-w680-h510-rw">
+	<h5>Govt. Reg. No: 2768/25/IV- 144/25D No.IV- 040200144/2025 West Bengal</h5>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="navMenu">
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#admission">Admission</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- SLIDER -->
+<div class="slider">
+    <div class="slide active"><img src="https://lh3.googleusercontent.com/p/AF1QipNM_jX-kLtLKrYptt0nDbRYl46KdLcUVinerl4M=s680-w680-h510-rw"></div>
+    <div class="slide"><img src="https://lh3.googleusercontent.com/p/AF1QipPz87twYO14wexSRtyGe6JTHDd3_zLY7vXRaHNi=s680-w680-h510-rw"></div>
+    <div class="slide"><img src="https://lh3.googleusercontent.com/p/AF1QipNAIM6OE05C_8O5055dvZSPcmwcYY-WiQJbDB8Y=s680-w680-h510-rw"></div>
+</div>
+
+<div class="container">
+
+<section id="about">
+    <h2>About Us</h2>
+
+    <div class="about-container">
+
+        <!-- TEXT -->
+        <div class="about-text">
+            <p>
+                Founder of <strong>Vedanta Academy</strong>, <strong>Ebran Alam</strong> is dedicated to providing quality IT, management, and vocational education.
+                With a focus on practical skills and industry-aligned courses, he ensures students gain the knowledge and confidence needed to excel in the modern workforce.
+            </p>
+
+            <p>
+                Vedanta Academy is a registered Education Trust dedicated to accessible, high-quality technical education.
+                We operate as a premier Computer Coaching Center, offering industry-aligned training crucial for today's digital economy.
+            </p>
+
+            <p>
+                <strong>Courses:</strong> DCA, DFA, GST, Tally Prime, ADCA, G-DCA, Advance Tally, Advance Excel, Typing Skills, etc.
+            </p>
+
+            <p>
+                <strong>Our Mission:</strong> To empower students from all backgrounds by bridging the digital skills gap and maximizing employability.
+                As a non-profit trust, our focus is solely on student success, reinvesting resources into advanced learning infrastructure and student support.
+            </p>
+        </div>
+
+        <!-- FOUNDER -->
+        <div class="about-founder">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipPBbi8oPHBUnVOlZv89dqs3fi4v7IqEFivJ7Y5z=s680-w680-h510-rw" alt="Founder">
+            <h3>Ebran Alam</h3>
+            <p>Founder, Vedanta Academy</p>
+        </div>
+
+    </div>
+</section>
+<section id="courses">
+    <h1>Courses We Offer</h1>
+
+    <div class="courses-grid">
+
+        <div class="course-card">
+            <h3>CCA</h3>
+            <p>Certificate in Computer Application</p>
+        </div>
+
+        <div class="course-card">
+            <h3>DCA</h3>
+            <p>Diploma in Computer Application</p>
+        </div>
+
+        <div class="course-card">
+            <h3>ADCA</h3>
+            <p>Advance Diploma in Computer Application</p>
+        </div>
+
+        <div class="course-card">
+            <h3>A.T / A.E</h3>
+            <p>Advance Tally</p>
+            <p>Advance Excel</p>
+        </div>
+
+        <div class="course-card">
+            <h3>PGDCA</h3>
+            <p>PG Diploma in Computer Application</p>
+        </div>
+
+        <div class="course-card">
+            <h3>DFA</h3>
+            <p>Diploma in Financial Accounting with GST</p>
+        </div>
+
+        <div class="course-card">
+            <h3>Graphics Designing</h3>
+        </div>
+
+        <div class="course-card">
+            <h3>Desktop Publishing</h3>
+            <p>Diploma in Desktop Publishing</p>
+        </div>
+
+        <div class="course-card">
+            <h3>Spoken English</h3>
+            <p>+ Personality Development</p>
+        </div>
+
+        <div class="course-card">
+            <h3>Programming</h3>
+            <p>C, C++, Python, Java, HTML, Adv-C</p>
+        </div>
+
+        <div class="course-card">
+            <h3>Typing Skills</h3>
+            <p>Advance Typing</p>
+        </div>
+
+    </div>
+</section>
+<section id="gallery">
+<h2 style=" text-align: center;
+    color: #0d6efd;
+    margin-bottom: 20px;">Gallery</h2>
+<div class="gallery">
+<img src="https://lh3.googleusercontent.com/p/AF1QipOoDq8IWcodZOj92LYdaIxV6wa1YGY9r4Amj9u_=s680-w680-h510-rw">
+<img src="https://lh3.googleusercontent.com/p/AF1QipNAIM6OE05C_8O5055dvZSPcmwcYY-WiQJbDB8Y=s680-w680-h510-rw">
+<img src="https://lh3.googleusercontent.com/p/AF1QipNEESs48kRhcqldkIO3zg-_Nn4i3VzH77ZvMZ-4=s680-w680-h510-rw">
+<img src="https://lh3.googleusercontent.com/p/AF1QipOc3XP0rOsjn9iATQW5YUu6GKB6F9xCfPIfrBRm=s680-w680-h510-rw">
+<img src="https://lh3.googleusercontent.com/p/AF1QipPL5rwfVg5io5O3pTFAK38Vu-CcTsmi_0qUZtPN=s680-w680-h510-rw">
+<img src="https://lh3.googleusercontent.com/p/AF1QipMLXUWahAdJTdmmeRgb_iZxuaS8uz1Kk-wecsWZ=s680-w680-h510-rw">
+<img src="https://lh3.googleusercontent.com/p/AF1QipPz87twYO14wexSRtyGe6JTHDd3_zLY7vXRaHNi=s680-w680-h510-rw">
+<img src="https://lh3.googleusercontent.com/p/AF1QipPBbi8oPHBUnVOlZv89dqs3fi4v7IqEFivJ7Y5z=s680-w680-h510-rw">
+</div>
+</section>
+
+<section id="admission">
+<h2>Admission Form</h2>
+
+<form>
+<input type="text" placeholder="Student Name" required>
+<input type="text" placeholder="Phone Number" required>
+<input type="email" placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button type="submit">Apply Now</button>
+</form>
+
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+
+    <div class="contact-wrapper">
+
+        <!-- CONTACT CARD -->
+       <section id="contact">
+    <h2>Contact Us</h2>
+
+    <div class="contact-wrapper">
+
+        <!-- CONTACT CARD -->
+        <div class="contact-card">
+            <h3>Vedanta Academy</h3>
+
+            <p>📍 Behind Vega Circle, Near Adarsh Mahavidyalaya</p>
+            <p>Prakash Nagar, Salugara-08</p>
+
+            <p>📞 <a href="tel:7679135583">7679135583</a></p>
+            <p>✉️ vedantaacademy658@gmail.com</p>
+
+            <a href="tel:7679135583" class="contact-btn">Call Now</a>
+        </div>
+
+        <!-- MAP -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.7532720752065!2d88.43415437443494!3d26.75224846696983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e441c7a6993865%3A0x5166bdc7e099747!2sVEDANTA%20ACADEMY%20SILIGURI!5e0!3m2!1sen!2sin!4v1768102719268!5m2!1sen!2sin" 
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+
+    </div>
+</section>
+<footer>
+  <p style="text-align: center; color: black;font-size:25px;">Website design and develop by Parwej Ansari</p>
+<div class="icons">
+
+    <a href="tel:7679135583" class="icon call">
+        <i class="fa-solid fa-phone"></i>
+        <span>Call</span>
+    </a>
+
+    <a href="https://www.instagram.com/ved.antaacademy?igsh=Y2M3dGVnbjQzbWRz&utm_source=qr" target="_blank" class="icon insta">
+        <i class="fa-brands fa-instagram"></i>
+        <span>Instagram</span>
+    </a>
+
+    <a href="https://www.facebook.com/share/17iTVyfXzT/?mibextid=wwXIfr" target="_blank" class="icon fb">
+        <i class="fa-brands fa-facebook"></i>
+        <span>Facebook</span>
+    </a>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcGfqb0Dby106BfYOaLcYzv86a1HDVtULAz4shas12YYsSMw/viewform?usp=preview" target="_blank" class="icon form">
+        <i class="fa-solid fa-file-lines"></i>
+        <span>Form</span>
+    </a>
+
+</div>
+<p>© 2026 Vedanta Academy</p>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/7679135583" class="whatsapp">💬</a>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navMenu").classList.toggle("active");
+}
+
+// SLIDER AUTO
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+setInterval(()=>{
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+},3000);
+</script>
+
+</body>
+</html>
