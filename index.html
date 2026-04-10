@@ -503,6 +503,24 @@ img {
     max-width: 100%;
     height: auto;
 }
+	.header-title {
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* MAIN TITLE */
+.header-title h2 {
+    font-size: 25px;
+    margin: 0;
+}
+
+/* SUBTITLE (SMALL UNDER TITLE) */
+.subtitle {
+    font-size: 14px;
+    margin-top: 2px;
+    color: white; /* header color ke hisaab se change kar sakte ho */
+    font-weight: 400;
+}
 </style>
 </head>
 
@@ -511,8 +529,11 @@ img {
 <header>
     <div class="logo">
         <img src="https://lh3.googleusercontent.com/a-/ALV-UjVbP6RtfhyJt4sI_mQ5FkYYUvFI2hJFsAc5ZXZrXPiq4wHKE04=s360-w360-h360">
-        <h2>Vedanta Academy</h2> <img src="https://lh3.googleusercontent.com/p/AF1QipNQ4xgfGtPKPsoO_-Eghfdv5vZidB-VJD6Y3Sgo=s680-w680-h510-rw">
-	<h5>Govt. Reg. No: 2768/25/IV- 144/25D No.IV- 040200144/2025 West Bengal</h5>
+       <div class="header-title">
+    <h2>Vedanta Academy</h2>
+    <p class="subtitle">A Unit Of Vedanta Academy Memorial Trust</p>
+</div> <img src="https://lh3.googleusercontent.com/p/AF1QipNQ4xgfGtPKPsoO_-Eghfdv5vZidB-VJD6Y3Sgo=s680-w680-h510-rw">
+	<h5>Govt. Reg. No: 2768/25/IV- 144/25D No.IV- 040200144/2025 West Bengal </h5>
     </div>
 
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
